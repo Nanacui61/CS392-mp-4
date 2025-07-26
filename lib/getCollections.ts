@@ -6,7 +6,7 @@ const HARVARD_API_KEY = process.env.HARVARD_API_KEY;
 
 export default async function getCollection(
   query: string
-): Promise<{ records: MuseumRecord[]; info: any } | undefined | null> {
+): Promise<{ records: MuseumRecord[] } | undefined | null> {
   try {
     if (!query) return undefined;
 
@@ -24,7 +24,7 @@ export default async function getCollection(
 
     return {
       records: jsonRes.records,
-      info: jsonRes.info, 
+      
     };
   } catch (error) {
     console.error("Error occurred while fetching collection:", error);

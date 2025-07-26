@@ -1,4 +1,7 @@
 import getCollection from "@/lib/getCollections";
+import Image from "next/image";
+
+
 
 
 export default async function HomePage() {
@@ -8,7 +11,7 @@ export default async function HomePage() {
     return (
       <main className="p-6">
         <h1 className="text-2xl font-bold">Monet Art Explorer</h1>
-        <p>⚠️ You've hit the API rate limit. Please try again later.</p>
+        <p> You hit the API rate limit. Please try again later.</p>
       </main>
     );
   }
@@ -30,13 +33,13 @@ export default async function HomePage() {
           <li key={item.id} className="border rounded p-4 shadow bg-white">
             <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
             {item.primaryimageurl ? (
-              <img
-                src={item.primaryimageurl}
-                alt={item.title}
-                width={300}
-                height={200}
-                className="w-full object-cover rounded"
-              />
+            <Image
+            src={item.primaryimageurl}
+            alt={item.title}
+            width={400}
+            height={300}
+            className="object-cover rounded"
+          />
             ) : (
               <p className="italic text-sm text-gray-500">No image available</p>
             )}
